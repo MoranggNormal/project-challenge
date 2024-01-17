@@ -1,5 +1,7 @@
 # Laravel - Vue Challenge
 
+(16/01) - This application is temporarily running on: http://3.235.3.204
+
 ### Setup Docker
 
 > Install docker:
@@ -67,6 +69,18 @@ $ composer update && composer install
 $ sail up -d
 ```
 
+- If you get an error saying that port :80 is alredy being used, like:
+
+```diff
+- ERROR: for laravel.test  Cannot start service laravel.test: driver failed programming external connectivity on endpoint project-challenge_laravel.test_1 (b9a731d928cbb02048d946f830fff348c5999384e7d3646fa51a1bdd8ddc151a): Error starting userland proxy: listen tcp4 0.0.0.0:80: bind: address already in use
+```
+- Please, disable `apache`, then proceed:
+
+```bash
+$ sudo systemctl stop apache2
+$ sudo systemctl disable apache2
+```
+
 > Log into the app container and make a migration:
 
 ```bash
@@ -88,4 +102,12 @@ $ php artisan key:generate
 ```
 
 
-The project should be working.
+The project now should be working.
+
+```diff
++ project-challenge_laravel.test_1   start-container   Exit 128        
++ Shutting down old Sail processes...
++ Creating network "project-challenge_sail" with driver "bridge"
++ Creating project-challenge_pgsql_1 ... done
++ Creating project-challenge_laravel.test_1 ... done
+```
