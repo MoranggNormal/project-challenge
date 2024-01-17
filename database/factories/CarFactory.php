@@ -22,6 +22,7 @@ class CarFactory extends Factory
             'model' => $this->faker->word,
             'year' => $this->faker->year,
             'owner_id' => User::factory()->create()->id,
+            'image_url' => fake()->imageUrl(category:'car'),
         ];
     }
 }

@@ -18,7 +18,8 @@ class Car extends Model
         'brand',
         'model',
         'year',
-        'owner_id'
+        'owner_id',
+        'image_url'
     ];
 
     public function owner()
