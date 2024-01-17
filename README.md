@@ -1,6 +1,6 @@
 # Laravel - Vue Challenge
 
-(16/01) - This application is temporarily running on: http://3.235.3.204
+(16/01) - This application is temporarily running on: http://blegon.epeixoto.com
 
 ### Setup Docker
 
