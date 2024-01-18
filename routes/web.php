@@ -36,6 +36,15 @@ Route::get('/car/{car:id}', function (Car $car) {
     ]);
 })->name('car.show');
 
+Route::get('/car/edit/{car:id}', function (Car $car) {
+    $revision = $car->revisions->first();
+
+    return Inertia::render('Car/Edit', [
+        'car' => $car,
+        'revision' => $revision,
+    ]);
+})->name('car.show');
+
 // ->middleware(['auth', 'verified'])->name('home')
 
 Route::middleware('auth')->group(function () {

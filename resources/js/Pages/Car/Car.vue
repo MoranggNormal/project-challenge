@@ -17,7 +17,7 @@ defineProps(["car", "revision"]);
 
     <div
       class="my-8 p-2 rounded-lg absolute w-[80%] bg-white translate-x-[-50%] translate-y-[-50%] left-[50%] md:left-0 md:translate-x-0 md:translate-y-0 md:m-4 md:w-[calc(50%-2rem)]"
-      v-if="$page.props.auth.user.id === car.owner_id"
+      v-if="$page.props.auth.user && $page.props.auth.user.id === car.owner_id"
     >
       <SecondaryButton>Edit</SecondaryButton>
     </div>
