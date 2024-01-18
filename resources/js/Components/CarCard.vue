@@ -10,10 +10,10 @@ defineProps(["car"]);
     <div class="bg-gray-900 bg-opacity-50 flex items-center h-full">
       <div class="px-10 max-w-xl">
         <h2 class="text-2xl text-white font-semibold">
-          {{ car.brand ? car.brand : "Brand not available" }}
+          {{ car.model ? car.model : "Model not available" }}, {{ car.year }}
         </h2>
         <p class="mt-2 text-gray-400">
-          {{ car.model ? car.model : "Model not available" }}
+          {{ car.brand ? car.brand : "Brand not available" }}
         </p>
         <button
           class="flex items-center mt-4 text-white text-sm uppercase font-medium rounded hover:underline focus:outline-none"
