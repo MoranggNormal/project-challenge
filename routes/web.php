@@ -25,6 +25,12 @@ Route::get('/', function () {
     ]);
 })->name("home");
 
+Route::get('/car/{car:id}', function (Car $car) {
+    return Inertia::render('Car', [
+        'car' => $car
+    ]);
+})->name('car.show');
+
 // ->middleware(['auth', 'verified'])->name('home')
 
 Route::middleware('auth')->group(function () {
