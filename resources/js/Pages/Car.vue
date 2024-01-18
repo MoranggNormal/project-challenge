@@ -29,7 +29,7 @@ defineProps(["car", "revision"]);
           {{ car.brand ? car.brand : "Brand not available" }}
         </p>
         <p className="mt-3 text-sm w-1/2">
-          {{ revision.description }}
+          {{ revision.description ? revision.description : "Description not available" }}
         </p>
       </div>
 
