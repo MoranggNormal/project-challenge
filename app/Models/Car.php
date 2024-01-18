@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Car extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
         'brand',
         'model',
@@ -21,4 +21,10 @@ class Car extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+        public function revisions()
+    {
+        return $this->hasMany(Revision::class);
+    }
+    
 }

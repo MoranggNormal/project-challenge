@@ -21,13 +21,18 @@ Route::get('/', function () {
     return Inertia::render('Home', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
-        'cars' => Car::all()
+        'cars' => Car::whereHas('revisions', function ($query) {
+            $query->whereNotNull('description');
+        })->get(),
     ]);
 })->name("home");
 
 Route::get('/car/{car:id}', function (Car $car) {
+    $revision = $car->revisions->first();
+
     return Inertia::render('Car', [
-        'car' => $car
+        'car' => $car,
+        'revision' => $revision,
     ]);
 })->name('car.show');
 
