@@ -30,7 +30,7 @@ Route::get('/', function () {
 Route::get('/car/{car:id}', function (Car $car) {
     $revision = $car->revisions->first();
 
-    return Inertia::render('Car', [
+    return Inertia::render('Car/Car', [
         'car' => $car,
         'revision' => $revision,
     ]);
