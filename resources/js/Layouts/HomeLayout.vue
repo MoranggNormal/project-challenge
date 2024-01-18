@@ -8,6 +8,15 @@ import ResponsiveNavLink from "@/Components/ResponsiveNavLink.vue";
 import { Link } from "@inertiajs/vue3";
 
 const showingNavigationDropdown = ref(false);
+
+defineProps({
+  canRegister: {
+    type: Boolean,
+  },
+  canLogin: {
+    type: Boolean,
+  },
+});
 </script>
 
 <template>
@@ -78,18 +87,21 @@ const showingNavigationDropdown = ref(false);
             </div>
 
             <template v-else>
-              <Link
-                :href="route('login')"
-                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
-                >Log in</Link
-              >
+              <div class="flex">
+                <Link
+                  v-if="canLogin"
+                  :href="route('login')"
+                  class="inline-flex items-center px-3 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                  >Log in</Link
+                >
 
-              <Link
-                v-if="canRegister"
-                :href="route('register')"
-                class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
-                >Register</Link
-              >
+                <Link
+                  v-if="canRegister"
+                  :href="route('register')"
+                  class="inline-flex items-center px-3 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                  >Register</Link
+                >
+              </div>
             </template>
 
             <!-- Hamburger -->
