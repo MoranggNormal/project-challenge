@@ -35,7 +35,7 @@ defineProps({
               <!-- Navigation Links -->
               <div class="hidden sm:-my-px sm:flex">
                 <NavLink :href="route('home')" :active="route().current('/')">
-                  Dashboard
+                  Home
                 </NavLink>
               </div>
             </div>
@@ -155,7 +155,7 @@ defineProps({
               :href="route('home')"
               :active="route().current('/')"
             >
-              Dashboard
+              Home
             </ResponsiveNavLink>
           </div>
 
