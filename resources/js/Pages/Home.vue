@@ -1,4 +1,5 @@
 <script setup>
+import CarCard from "@/Components/CarCard.vue";
 import HomeLayout from "@/Layouts/HomeLayout.vue";
 import { Head } from "@inertiajs/vue3";
 
@@ -9,11 +10,14 @@ defineProps({
   canLogin: {
     type: Boolean,
   },
+  cars: {
+    type: Object,
+  },
 });
 </script>
 
 <template>
-  <Head title="Home" />
+  <Head title="Laravel - Vue Challenge" />
 
   <HomeLayout :canRegister="canRegister" :canLogin="canLogin">
     <template #header>
@@ -22,11 +26,9 @@ defineProps({
       </h2>
     </template>
 
-    <div class="py-12">
-      <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-          <div class="p-6 text-gray-900">You're logged in!</div>
-        </div>
+    <div class="md:flex mt-8 mx-4 flex-wrap py-20 gap-4 justify-center">
+      <div class="w-1/5" v-for="car in cars" :key="car.brand">
+        <CarCard :car="car" />
       </div>
     </div>
   </HomeLayout>
